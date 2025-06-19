@@ -1,0 +1,230 @@
+/* Reset e Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 8rem);
+  line-height: 0.9;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 4rem);
+  line-height: 0.9;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+  line-height: 1;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Layout */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(245, 245, 245, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 0.6;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Typography Helpers */
+.text-large {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  line-height: 1.3;
+}
+
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.btn-outline:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Images */
+.artwork-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.artwork-image:hover {
+  transform: scale(1.02);
+}
+
+/* Spacing */
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+.mb-4 { margin-bottom: 4rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mt-4 { margin-top: 4rem; }
+.pt-nav { padding-top: 120px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.opacity-60 { opacity: 0.6; }
+.opacity-30 { opacity: 0.3; }
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-delay-1 { animation-delay: 0.2s; }
+.fade-in-delay-2 { animation-delay: 0.4s; }
+.fade-in-delay-3 { animation-delay: 0.6s; } 
