@@ -6,197 +6,236 @@
           <h1 class="fade-in">Trabalhos</h1>
         </div>
 
-        <div class="accordion-pinturas-wrapper">
-          <Accordion title="Pinturas" :defaultOpen="true">
-            <Accordion 
-              title="Série Memórias" 
-              :defaultOpen="openSerie === 'memorias'" 
-              @toggle="handleSerieToggle('memorias')"
+        <!-- Category Selection Cards -->
+        <div v-if="!selectedCategory" class="category-selection">
+          <div class="category-grid">
+            <div 
+              v-for="category in categories" 
+              :key="category.id"
+              class="category-card"
+              @click="selectCategory(category.id)"
             >
-              <div class="work-series mb-4 fade-in fade-in-delay-1 series-grid">
-                <div class="text-vertical">Memórias</div>
-                <div>
-                  <div class="series-header">
-                    <h2>Série Memórias</h2>
-                    <p class="series-description">
-                      Série de pinturas abstratas produzida durante meu trabalho de mestrado. A série propõe a existência
-                      memória virtual corrompida enquanto objeto material passível de sentimentos.</p>
-                    
-                    
-                      <p class="series-description">Os blocos de informação distorcidos visualmente demonstram a impermanência de 
-                      um conteúdo que ocupa um espaço idealmente fixo, ao mesmo tempo, a 
-                      composição torna tal espaço passível de uma interpretação do próprio registro imagético 
-                      passado.</p>
-                    
-                    
-                      <p class="series-description">A série é constituída de 8 pinturas sobre papel onde a manualidade repetitiva é empregada a 
-                      fim de obter-se uma visualidade quase maquínica e repetitiva ao mesmo tempo que 
-                      busca a randomização verdadeiramente infinita.</p>
-                    
-                   
-                  </div>
-                  <div class="series-works">
-                    <div class="work-item">
-                      <img class="work-image" :src="memoria01" alt="Memória 01" @click="openImageDialog(memoria01, 'Memória 01')">
-                      <div class="work-info">
-                        <h3>Memória 01</h3>
-                        <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
-                      </div>
-                    </div>
-                    <div class="work-item">
-                      <img class="work-image" :src="memoria03" alt="Memória 03" @click="openImageDialog(memoria03, 'Memória 03')">
-                      <div class="work-info">
-                        <h3>Memória 03</h3>
-                        <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
-                      </div>
-                    </div>
-                    <div class="work-item">
-                      <img class="work-image" :src="memoria05" alt="Memória 05" @click="openImageDialog(memoria05, 'Memória 05')">
-                      <div class="work-info">
-                        <h3>Memória 05</h3>
-                        <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-vertical invertido">Memórias</div>
+              <div class="category-image">
+                <img :src="category.previewImage" :alt="category.name">
               </div>
-            </Accordion>
-            <Accordion 
-              title="Série Varreduras" 
-              :defaultOpen="openSerie === 'varreduras'" 
-              @toggle="handleSerieToggle('varreduras')"
-            >
-              <div class="work-series mb-4 fade-in fade-in-delay-2 series-grid">
-                <div class="text-vertical">Varreduras</div>
-                <div>
-                  <div class="series-header">
-                    <h2>Série Varreduras</h2>
-                    <p class="series-description">
-                      A série varreduras é composta de 60 pinturas sobre papel. Utilizando as cores primárias do 
-                      padrão CMY e através de movimentos repetitivos tem o objetivo de simular a 
-                      varredura de pixels em uma tela eletrônica RGB dispondo tinta acrílica em ordens 
-                      específicas de cor e posição na superfície.
-                    </p>
-                    <p>
-                      Os blocos de informação cromática criados buscam um aspecto de distorção visual para 
-                      demonstrar a transitoriedade de um conteúdo exclusivo que ocupa um espaço 
-                      aparentemente fixo, ao mesmo tempo as composições intentam demonstrar que tal 
-                      espaço é suscetível a uma nova percepção do registro do tempo e uma variação infinita.
-                    </p>
-                    <p>
-                      A série explora ainda a ideia de manualidade repetitiva, aqui empregada a fim de obter-se 
-                      uma visualidade pretensamente maquínica ao mesmo tempo que busca a tensão de uma 
-                      visualidade orgânica manual/artesanal.
-                    </p>
-                  </div>
-                  <div class="series-works">
-                    <div class="work-item" v-for="(img, idx) in varredurasImgs" :key="img">
-                      <img class="work-image" :src="img.src" :alt="img.alt" @click="openImageDialog(img.src, img.alt)">
-                      <div class="work-info">
-                        <h3>{{ img.alt }}</h3>
-                        <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-vertical invertido">Varreduras</div>
+              <div class="category-info">
+                <h3>{{ category.name }}</h3>
+                <p>{{ category.description }}</p>
               </div>
-            </Accordion>
-            <Accordion 
-              title="Série Interferências" 
-              :defaultOpen="openSerie === 'interferencias'" 
-              @toggle="handleSerieToggle('interferencias')"
-            >
-              <div class="work-series mb-4 fade-in fade-in-delay-3 series-grid">
-                <div class="text-vertical">Interferências</div>
-                <div>
-                  <div class="series-header">
-                    <h2>Série Interferências</h2>
-                    <p class="series-description">
-                      Durante a investigação das cores primárias dos sistemas de cores RGB e CMYK e do ato 
-                      pseudomecanizado de dispersão de valores cromáticos, máximos ou mínimos, surge a 
-                      série Interferências.
-                    </p>
-                    <p>
-                      Como o nome sugere, as interferências se apresentam acima, ou a frente de uma 
-                      camada imaculada de cores sólidas específicas que preenchem um quadrilátero 
-                      romboide.
-                    </p>
-                    <p>
-                      A série conta com 6 composições a fim de atender a todos os valores primários do 
-                      modelo visual do cubo RGB.
-                    </p>
-                  </div>
-                  <div class="series-works">
-                    <div class="work-item" v-for="img in interferenciasImgs" :key="img.src">
-                      <img class="work-image" :src="img.src" :alt="img.alt" @click="openImageDialog(img.src, img.alt)">
-                      <div class="work-info">
-                        <h3>{{ img.alt }}</h3>
-                        <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-vertical invertido">Interferências</div>
-              </div>
-            </Accordion>
-            <Accordion 
-              title="Série Corrigindo Erros" 
-              :defaultOpen="openSerie === 'corrigindo'" 
-              @toggle="handleSerieToggle('corrigindo')"
-            >
-              <div class="work-series mb-4 series-grid">
-                <div class="text-vertical">Corrigindo Erros</div>
-                <div>
-                  <div class="series-header">
-                    <h2>Série Corrigindo Erros</h2>
-                    <p class="series-description">
-                      A série "Corrigindo Erros" busca expressar visualmente a constante tentativa humana de 
-                      corrigir os próprios equívocos, sobrescrevendo ações passadas na busca por 
-                      aperfeiçoamento ou apagamento. No entanto, cada tentativa de modificar o que foi 
-                      originalmente produzido acaba por gerar novas interpretações, que surgem no próprio 
-                      ato de correção, criando assim um ciclo infinito de (in)compreensão da imagem.
-                    </p>
-                    <p>
-                      A informação visual da obra se organiza de forma análoga a um texto; entretanto, cada 
-                      linha desse "texto" foi ocultada por uma faixa branca. Sobre cada faixa, ocorreram 
-                      intervenções na tentativa de restaurar parte da informação original, agora encoberta.
-                    </p>
-                    <p>
-                      Por meio desse ciclo repetitivo de correções, a obra questiona a real necessidade de uma 
-                      interpretação literal das imagens, bem como o modo como as compreendemos ao longo do 
-                      tempo.
-                    </p>
-                  </div>
-                  <div class="series-works">
-                    <div class="work-item" v-for="img in corrigindoImgs" :key="img.src">
-                      <img class="work-image" :src="img.src" :alt="img.alt" @click="openImageDialog(img.src, img.alt)">
-                      <div class="work-info">
-                        <h3>{{ img.alt }}</h3>
-                        <p>Técnica mista sobre papel<br>21 x 29,7 cm<br>2022</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-vertical invertido">Corrigindo Erros</div>
-              </div>
-            </Accordion>
-          </Accordion>
+            </div>
+          </div>
+        </div>
 
-          <Accordion title="Gravuras">
-            <!-- Conteúdo de gravuras aqui -->
-          </Accordion>
-          <Accordion title="Digital">
-            <!-- Conteúdo de digital aqui -->
-          </Accordion>
-          <Accordion title="Música">
-            <!-- Conteúdo de música aqui -->
-          </Accordion>
+        <!-- Content Frame -->
+        <div v-if="selectedCategory" class="content-frame">
+          <div class="frame-content">
+            <!-- Pinturas Content -->
+            <div v-if="selectedCategory === 'pinturas'" class="pinturas-content">
+              <Accordion 
+                title="Série Memórias" 
+                :defaultOpen="openSerie === 'memorias'" 
+                @toggle="handleSerieToggle('memorias')"
+                data-serie="memorias"
+              >
+                <div class="work-series mb-4 fade-in fade-in-delay-1 series-grid" data-serie="memorias">
+                  <div class="text-vertical">Memórias</div>
+                  <div>
+                    <div class="series-header">
+                      <p class="series-description">
+                        Série de pinturas abstratas produzida durante meu trabalho de mestrado. A série propõe a existência
+                        memória virtual corrompida enquanto objeto material passível de sentimentos.</p>
+                      
+                      
+                        <p class="series-description">Os blocos de informação distorcidos visualmente demonstram a impermanência de 
+                        um conteúdo que ocupa um espaço idealmente fixo, ao mesmo tempo, a 
+                        composição torna tal espaço passível de uma interpretação do próprio registro imagético 
+                        passado.</p>
+                      
+                      
+                        <p class="series-description">A série é constituída de 8 pinturas sobre papel onde a manualidade repetitiva é empregada a 
+                        fim de obter-se uma visualidade quase maquínica e repetitiva ao mesmo tempo que 
+                        busca a randomização verdadeiramente infinita.</p>
+                      
+                     
+                    </div>
+                    <div class="series-works">
+                      <div class="work-item">
+                        <img class="work-image" :src="memoria01" alt="Memória 01" @click="openImageDialog(memoria01, 'Memória 01')">
+                        <div class="work-info">
+                          <h3>Memória 01</h3>
+                          <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
+                        </div>
+                      </div>
+                      <div class="work-item">
+                        <img class="work-image" :src="memoria03" alt="Memória 03" @click="openImageDialog(memoria03, 'Memória 03')">
+                        <div class="work-info">
+                          <h3>Memória 03</h3>
+                          <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
+                        </div>
+                      </div>
+                      <div class="work-item">
+                        <img class="work-image" :src="memoria05" alt="Memória 05" @click="openImageDialog(memoria05, 'Memória 05')">
+                        <div class="work-info">
+                          <h3>Memória 05</h3>
+                          <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-vertical invertido">Memórias</div>
+                </div>
+              </Accordion>
+              <Accordion 
+                title="Série Varreduras" 
+                :defaultOpen="openSerie === 'varreduras'" 
+                @toggle="handleSerieToggle('varreduras')"
+                data-serie="varreduras"
+              >
+                <div class="work-series mb-4 fade-in fade-in-delay-2 series-grid" data-serie="varreduras">
+                  <div class="text-vertical">Varreduras</div>
+                  <div>
+                    <div class="series-header">
+                      <p class="series-description">
+                        A série varreduras é composta de 60 pinturas sobre papel. Utilizando as cores primárias do 
+                        padrão CMY e através de movimentos repetitivos tem o objetivo de simular a 
+                        varredura de pixels em uma tela eletrônica RGB dispondo tinta acrílica em ordens 
+                        específicas de cor e posição na superfície.
+                      </p>
+                      <p>
+                        Os blocos de informação cromática criados buscam um aspecto de distorção visual para 
+                        demonstrar a transitoriedade de um conteúdo exclusivo que ocupa um espaço 
+                        aparentemente fixo, ao mesmo tempo as composições intentam demonstrar que tal 
+                        espaço é suscetível a uma nova percepção do registro do tempo e uma variação infinita.
+                      </p>
+                      <p>
+                        A série explora ainda a ideia de manualidade repetitiva, aqui empregada a fim de obter-se 
+                        uma visualidade pretensamente maquínica ao mesmo tempo que busca a tensão de uma 
+                        visualidade orgânica manual/artesanal.
+                      </p>
+                    </div>
+                    <div class="series-works">
+                      <div class="work-item" v-for="(img, idx) in varredurasImgs" :key="img">
+                        <img class="work-image" :src="img.src" :alt="img.alt" @click="openImageDialog(img.src, img.alt)">
+                        <div class="work-info">
+                          <h3>{{ img.alt }}</h3>
+                          <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-vertical invertido">Varreduras</div>
+                </div>
+              </Accordion>
+              <Accordion 
+                title="Série Interferências" 
+                :defaultOpen="openSerie === 'interferencias'" 
+                @toggle="handleSerieToggle('interferencias')"
+                data-serie="interferencias"
+              >
+                <div class="work-series mb-4 fade-in fade-in-delay-3 series-grid" data-serie="interferencias">
+                  <div class="text-vertical">Interferências</div>
+                  <div>
+                    <div class="series-header">
+                      <p class="series-description">
+                        Durante a investigação das cores primárias dos sistemas de cores RGB e CMYK e do ato 
+                        pseudomecanizado de dispersão de valores cromáticos, máximos ou mínimos, surge a 
+                        série Interferências.
+                      </p>
+                      <p>
+                        Como o nome sugere, as interferências se apresentam acima, ou a frente de uma 
+                        camada imaculada de cores sólidas específicas que preenchem um quadrilátero 
+                        romboide.
+                      </p>
+                      <p>
+                        A série conta com 6 composições a fim de atender a todos os valores primários do 
+                        modelo visual do cubo RGB.
+                      </p>
+                    </div>
+                    <div class="series-works">
+                      <div class="work-item" v-for="img in interferenciasImgs" :key="img.src">
+                        <img class="work-image" :src="img.src" :alt="img.alt" @click="openImageDialog(img.src, img.alt)">
+                        <div class="work-info">
+                          <h3>{{ img.alt }}</h3>
+                          <p>Acrílica sobre papel<br>42 x 29,7 cm<br>2022</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-vertical invertido">Interferências</div>
+                </div>
+              </Accordion>
+              <Accordion 
+                title="Corrigindo Erros" 
+                :defaultOpen="openSerie === 'corrigindo'" 
+                @toggle="handleSerieToggle('corrigindo')"
+                data-serie="corrigindo"
+              >
+                <div class="work-series mb-4 series-grid" data-serie="corrigindo">
+                  <div class="text-vertical">Corrigindo Erros</div>
+                  <div>
+                    <div class="series-header">
+                      <!-- <h2>Série Corrigindo Erros</h2> -->
+                      <p class="series-description">
+                        A série "Corrigindo Erros" busca expressar visualmente a constante tentativa humana de 
+                        corrigir os próprios equívocos, sobrescrevendo ações passadas na busca por 
+                        aperfeiçoamento ou apagamento. No entanto, cada tentativa de modificar o que foi 
+                        originalmente produzido acaba por gerar novas interpretações, que surgem no próprio 
+                        ato de correção, criando assim um ciclo infinito de (in)compreensão da imagem.
+                      </p>
+                      <p>
+                        A informação visual da obra se organiza de forma análoga a um texto; entretanto, cada 
+                        linha desse "texto" foi ocultada por uma faixa branca. Sobre cada faixa, ocorreram 
+                        intervenções na tentativa de restaurar parte da informação original, agora encoberta.
+                      </p>
+                      <p>
+                        Por meio desse ciclo repetitivo de correções, a obra questiona a real necessidade de uma 
+                        interpretação literal das imagens, bem como o modo como as compreendemos ao longo do 
+                        tempo.
+                      </p>
+                    </div>
+                    <div class="series-works">
+                      <div class="work-item" v-for="img in corrigindoImgs" :key="img.src">
+                        <img class="work-image" :src="img.src" :alt="img.alt" @click="openImageDialog(img.src, img.alt)">
+                        <div class="work-info">
+                          <h3>{{ img.alt }}</h3>
+                          <p>Técnica mista sobre papel<br>21 x 29,7 cm<br>2022</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-vertical invertido">Corrigindo Erros</div>
+                </div>
+              </Accordion>
+            </div>
+
+            <!-- Gravuras Content -->
+            <div v-else-if="selectedCategory === 'gravuras'" class="gravuras-content">
+              <div class="coming-soon">
+                <h3>Gravuras</h3>
+                <p>Conteúdo em desenvolvimento...</p>
+              </div>
+            </div>
+
+            <!-- Digital Content -->
+            <div v-else-if="selectedCategory === 'digital'" class="digital-content">
+              <div class="coming-soon">
+                <h3>Digital</h3>
+                <p>Conteúdo em desenvolvimento...</p>
+              </div>
+            </div>
+
+            <!-- Som Content -->
+            <div v-else-if="selectedCategory === 'som'" class="som-content">
+              <div class="coming-soon">
+                <h3>Som</h3>
+                <p>Conteúdo em desenvolvimento...</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Quote Section -->
-        <div class="quote-section fade-in">
+        <div v-if="!selectedCategory" class="quote-section fade-in">
           <blockquote class="featured-quote">
             <h2>"Se as pinturas abstratas mostram minha realidade, então as paisagens e naturezas-mortas mostram meu anseio."</h2>
             <cite>– Gerhard Richter, 1981</cite>
@@ -239,7 +278,8 @@ export default {
   components: { Accordion, ImageDialog },
   data() {
     return {
-      openSerie: null,
+      selectedCategory: null,
+      openSerie: 'memorias', // Primeiro item expandido por padrão
       memoria01,
       memoria03,
       memoria05,
@@ -263,7 +303,33 @@ export default {
       corrigindo3,
       dialogOpen: false,
       dialogImg: null,
-      dialogAlt: ''
+      dialogAlt: '',
+      categories: [
+        {
+          id: 'pinturas',
+          name: 'Pinturas',
+          description: 'Séries de pinturas abstratas e experimentais',
+          previewImage: memoria01
+        },
+        {
+          id: 'gravuras',
+          name: 'Gravuras',
+          description: 'Trabalhos em gravura e técnicas tradicionais',
+          previewImage: memoria03
+        },
+        {
+          id: 'digital',
+          name: 'Digital',
+          description: 'Arte digital e experimentações tecnológicas',
+          previewImage: memoria05
+        },
+        {
+          id: 'som',
+          name: 'Som',
+          description: 'Composições e experimentações sonoras',
+          previewImage: v004
+        }
+      ]
     }
   },
   computed: {
@@ -298,7 +364,51 @@ export default {
       ];
     }
   },
+  mounted() {
+    this.setupScrollObserver();
+  },
+  beforeUnmount() {
+    if (this.scrollObserver) {
+      this.scrollObserver.disconnect();
+    }
+  },
   methods: {
+    selectCategory(categoryId) {
+      this.selectedCategory = categoryId;
+      // Reset para o primeiro item expandido quando mudar de categoria
+      this.openSerie = 'memorias';
+      this.$nextTick(() => {
+        this.setupScrollObserver();
+      });
+    },
+    setupScrollObserver() {
+      if (!this.selectedCategory || this.selectedCategory !== 'pinturas') return;
+      
+      // Limpar observer anterior se existir
+      if (this.scrollObserver) {
+        this.scrollObserver.disconnect();
+      }
+      
+      this.scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const serieId = entry.target.dataset.serie;
+            if (serieId && serieId !== this.openSerie) {
+              this.openSerie = serieId;
+            }
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '-50px 0px -50px 0px'
+      });
+
+      // Observar os elementos das séries
+      this.$nextTick(() => {
+        const seriesElements = this.$el.querySelectorAll('[data-serie]');
+        seriesElements.forEach(el => this.scrollObserver.observe(el));
+      });
+    },
     handleSerieToggle(serie) {
       this.openSerie = this.openSerie === serie ? null : serie;
     },
@@ -321,6 +431,106 @@ export default {
   background-color: #f5f5f5;
 }
 
+/* Category Selection Styles */
+.category-selection {
+  margin-bottom: 4rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.category-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-image img {
+  transform: scale(1.05);
+}
+
+.category-info {
+  padding: 1.5rem;
+}
+
+.category-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.category-info p {
+  color: #666;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Content Frame Styles */
+.content-frame {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  width: 1200px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+
+.frame-content {
+  padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.coming-soon {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.coming-soon h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.coming-soon p {
+  font-size: 1.1rem;
+}
+
 .works-header {
   display: flex;
   justify-content: space-between;
@@ -333,6 +543,10 @@ export default {
   grid-template-columns: 80px 1fr 80px;
   align-items: stretch;
   gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .work-series {
@@ -359,6 +573,10 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .work-item {
@@ -465,6 +683,17 @@ export default {
 }
 
 @media (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .content-frame {
+    width: calc(100% - 2rem);
+    max-width: calc(100% - 2rem);
+    margin: 0 1rem 2rem 1rem;
+  }
+  
   .series-grid {
     grid-template-columns: 1fr;
   }
@@ -494,6 +723,19 @@ export default {
   
   .featured-quote {
     padding: 2rem;
+  }
+  
+  
+  .frame-content {
+    padding: 1rem;
+  }
+  
+  .category-info {
+    padding: 1rem;
+  }
+  
+  .category-image {
+    height: 150px;
   }
 }
 

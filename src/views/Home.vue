@@ -12,8 +12,7 @@
           </div>
           <div class="hero-image fade-in fade-in-delay-2">
             <div class="hero-artwork">
-              <!-- Imagem artística elegante -->
-              <div class="elegant-artwork"></div>
+              <img src="../assets/tokyo_2020.jpg" alt="Better Reality Island" class="hero-image-content">
             </div>
           </div>
         </div>
@@ -71,35 +70,17 @@ export default {
   height: 500px;
 }
 
-.elegant-artwork {
+.hero-image-content {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  object-fit: cover;
   border-radius: 12px;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
-.elegant-artwork::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 20px,
-    rgba(255, 255, 255, 0.1) 20px,
-    rgba(255, 255, 255, 0.1) 40px
-  );
-  animation: slide 8s linear infinite;
-}
-
-@keyframes slide {
-  0% { transform: translateX(-40px); }
-  100% { transform: translateX(40px); }
+.hero-image-content:hover {
+  transform: scale(1.02);
 }
 
 .intro {
