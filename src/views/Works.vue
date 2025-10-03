@@ -13,6 +13,7 @@
               v-for="category in categories" 
               :key="category.id"
               class="category-card"
+              :data-category="category.id"
               @click="selectCategory(category.id)"
             >
               <div class="category-image">
@@ -712,6 +713,15 @@ export default {
 
 .category-card:hover .category-image img {
   transform: scale(1.05);
+}
+
+/* Zoom específico para cards de pinturas e gravuras */
+.category-card[data-category="pinturas"] .category-image img {
+  transform: scale(1.2);
+}
+
+.category-card[data-category="gravuras"] .category-image img {
+  transform: scale(1.7);
 }
 
 .category-info {
