@@ -42,8 +42,8 @@
                   <div>
                     <div class="series-header">
                       <p class="series-description">
-                        Série de pinturas abstratas produzida durante meu trabalho de mestrado. A série propõe a existência
-                        memória virtual corrompida enquanto objeto material passível de sentimentos.</p>
+                        Série de pinturas abstratas produzida durante meu trabalho de mestrado. A série propõe a existência de um conjunto de
+                        memórias virtuais corrompidas conjuradas em papel e trazidas ao mundo físico na forma de objeto estático. A antítese da existência em fluxo é fixada em um objeto estático. </p>
                       
                       
                         <p class="series-description">Os blocos de informação distorcidos visualmente demonstram a impermanência de 
@@ -54,7 +54,7 @@
                       
                         <p class="series-description">A série é constituída de 8 pinturas sobre papel onde a manualidade repetitiva é empregada a 
                         fim de obter-se uma visualidade quase maquínica e repetitiva ao mesmo tempo que 
-                        busca a randomização verdadeiramente infinita.</p>
+                        busca a randomização verdadeiramente infinita na pintura e impossível na computação digital.</p>
                       
                      
                     </div>
@@ -174,7 +174,7 @@
                   <div class="text-vertical">Corrigindo Erros</div>
                   <div>
                     <div class="series-header">
-                      <!-- <h2>Série Corrigindo Erros</h2> -->
+                      <!-- Trabalhos em xilogravura e gravura em metal que transitam entre a paisagem urbana e o corpo expressivo, sugerindo relações visuais e sensíveis a partir dessas técnicas tradicionais. -->
                       <p class="series-description">
                         A série "Corrigindo Erros" busca expressar visualmente a constante tentativa humana de 
                         corrigir os próprios equívocos, sobrescrevendo ações passadas na busca por 
@@ -210,26 +210,237 @@
 
             <!-- Gravuras Content -->
             <div v-else-if="selectedCategory === 'gravuras'" class="gravuras-content">
-              <div class="coming-soon">
-                <h3>Gravuras</h3>
-                <p>Conteúdo em desenvolvimento...</p>
-              </div>
+              <Accordion 
+                title="Gravuras" 
+                :defaultOpen="openSerie === 'gravuras'" 
+                @toggle="handleSerieToggle('gravuras')"
+                data-serie="gravuras"
+              >
+                <div class="work-series mb-4 series-grid" data-serie="gravuras">
+                  <div class="text-vertical">Gravuras</div>
+                  <div>
+                    <div class="series-header">
+                      <p class="series-description">
+                        Trabalhos em xilogravura e gravura em metal que transitam entre a paisagem urbana e o corpo expressivo, sugerindo relações visuais e sensíveis a partir dessas técnicas tradicionais.
+                      </p>
+                    </div>
+                    <div class="series-works">
+                      <div class="work-item" @click="openImageDialog(gravura001, 'Gravura 001')">
+                        <img class="work-image" :src="gravura001" alt="Gravura 001">
+                        <div class="work-info">
+                          <h3>Gravura 001</h3>
+                          <p>Xilogravura em imbuia sobre papel<br>30 x 40 cm<br>2013</p>
+                        </div>
+                      </div>
+                      <div class="work-item" @click="openImageDialog(gravura002, 'Gravura 002')">
+                        <img class="work-image" :src="gravura002" alt="Gravura 002">
+                        <div class="work-info">
+                          <h3>Gravura 002</h3>
+                          <p>Gravura em metal (ponta seca) sobre papel<br>30 x 40 cm<br>2013</p>
+                        </div>
+                      </div>
+                      <div class="work-item" @click="openImageDialog(gravura003, 'Gravura 003')">
+                        <img class="work-image" :src="gravura003" alt="Gravura 003">
+                        <div class="work-info">
+                          <h3>Gravura 003</h3>
+                          <p>Xilogravura em imbuia sobre papel<br>30 x 40 cm<br>2012</p>
+                        </div>
+                      </div>
+                      <div class="work-item" @click="openImageDialog(gravura004, 'Gravura 004')">
+                        <img class="work-image" :src="gravura004" alt="Gravura 004">
+                        <div class="work-info">
+                          <h3>Gravura 004</h3>
+                          <p>Xilogravura em compensado naval sobre papel<br>30 x 40 cm<br>2012</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-vertical invertido">Impressões</div>
+                </div>
+              </Accordion>
             </div>
 
             <!-- Digital Content -->
             <div v-else-if="selectedCategory === 'digital'" class="digital-content">
-              <div class="coming-soon">
-                <h3>Digital</h3>
-                <p>Conteúdo em desenvolvimento...</p>
-              </div>
+              <Accordion 
+                title="Arte Digital" 
+                :defaultOpen="openSerie === 'digital'" 
+                @toggle="handleSerieToggle('digital')"
+                data-serie="digital"
+              >
+                <div class="work-series mb-4 series-grid" data-serie="digital">
+                  <div class="text-vertical">Digital</div>
+                  <div>
+                    <div class="series-header">
+                      <p class="series-description">
+                        Exploração de algoritmos, manipulação de imagens e criação de mundos virtuais.
+                        Esta seção apresenta obras que nascem e se desenvolvem no ambiente digital,
+                        utilizando código e software como ferramentas de expressão artística.
+                      </p>
+                    </div>
+                    <div class="series-works">
+                      <div class="work-item" @click="openImageDialog(tokyo2020, 'Tokyo 2020')">
+                        <img class="work-image" :src="tokyo2020" alt="Tokyo 2020">
+                        <div class="work-info">
+                          <h3>Tokyo 2020</h3>
+                          <p>Arte digital<br>Impressão em papel algodão<br>70 x 100 cm<br>2020</p>
+                        </div>
+                      </div>
+                      <div class="work-item" @click="openImageDialog(betterRealityIsland, 'Better Reality Island 1.1')">
+                        <img class="work-image" :src="betterRealityIsland" alt="Better Reality Island 1.1">
+                        <div class="work-info">
+                          <h3>Better Reality Island 1.1</h3>
+                          <p>Arte digital<br>Impressão em papel algodão<br>100 x 140 cm<br>2022</p>
+                        </div>
+                      </div>
+                      <div class="work-item" @click="openImageDialog(baw06, 'BAW 06')">
+                        <img class="work-image" :src="baw06" alt="BAW 06">
+                        <div class="work-info">
+                          <h3>BAW 06</h3>
+                          <p>Arte digital<br>Impressão em papel algodão<br>50 x 70 cm<br>2021</p>
+                        </div>
+                      </div>
+                      <div class="work-item" @click="openImageDialog(baw04, 'BAW 04')">
+                        <img class="work-image" :src="baw04" alt="BAW 04">
+                        <div class="work-info">
+                          <h3>BAW 04</h3>
+                          <p>Arte digital<br>Impressão em papel algodão<br>50 x 70 cm<br>2021</p>
+                        </div>
+                      </div>
+                      <div class="work-item" @click="openImageDialog(oPrimeiroSePerdeu2, 'O Primeiro Se Perdeu 2')">
+                        <img class="work-image" :src="oPrimeiroSePerdeu2" alt="O Primeiro Se Perdeu 2">
+                        <div class="work-info">
+                          <h3>O Primeiro Se Perdeu 2</h3>
+                          <p>Arte digital<br>Impressão em papel algodão<br>80 x 80 cm<br>2023</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-vertical invertido">Algoritmos</div>
+                </div>
+              </Accordion>
             </div>
 
             <!-- Som Content -->
             <div v-else-if="selectedCategory === 'som'" class="som-content">
-              <div class="coming-soon">
-                <h3>Som</h3>
-                <p>Conteúdo em desenvolvimento...</p>
-              </div>
+              <Accordion 
+                title="Som" 
+                :defaultOpen="openSerie === 'som'" 
+                @toggle="handleSerieToggle('som')"
+                data-serie="som"
+              >
+                <div class="work-series mb-4 series-grid" data-serie="som">
+                  <div class="text-vertical">Som</div>
+                  <div>
+                    <div class="series-header">
+                      <p class="series-description">
+                        Experimentações sonoras que exploram a interseção entre arte visual e música.
+                        Esta seção apresenta composições que dialogam com as obras visuais,
+                        criando uma experiência sensorial completa.
+                      </p>
+                    </div>
+                    <div class="bandcamp-embeds">
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=260295741/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/argama">argama de raphael.ars</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=3419646070/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/mirabile-nebula">Mirabile Nebula de Mirabile Nebula</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=3613125913/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/inimigo-abstrato">inimigo abstrato de inimigo abstrato</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=919529375/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/distopia-volume-i">Distopia Volume I de Drapeiseasy - Lyften</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=2299144587/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/inacabado">Inacabado de Raphael + Ruan</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=1133387801/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/sublunar">Sublunar de Sublunar</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=2536180858/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/raphael-ruan">Raphael - Ruan de Raphael + Ruan</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=2088502671/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/ruan-raphael">Ruan - Raphael de Raphael + Ruan</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=4245138655/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/actresses-ep">Actresses EP de Softporn</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=3061150825/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/matatl-ntica">Matatlântica de Matatlântica</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=3009831878/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/digital-sun-ep">Digital Sun EP de Lyften</a>
+                        </iframe>
+                      </div>
+                      <div class="bandcamp-embed">
+                        <iframe 
+                          style="border: 0; width: 350px; height: 470px;" 
+                          src="https://bandcamp.com/EmbeddedPlayer/album=3201637383/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" 
+                          seamless>
+                          <a href="https://distopia.bandcamp.com/album/vejo-voc-conversando-comigo-vs-softporn">Vejo você conversando comigo vs. Softporn de Vejo você conversando comigo vs. Softporn</a>
+                        </iframe>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-vertical invertido">Composições</div>
+                </div>
+              </Accordion>
             </div>
           </div>
         </div>
@@ -272,6 +483,16 @@ import interferencias006 from '../assets/interferências-006-redux.png';
 import corrigindo1 from '../assets/img20230202_11361453-reduzido.png';
 import corrigindo2 from '../assets/img20230426_22052568.png';
 import corrigindo3 from '../assets/img20230326_23062483.png';
+import gravura001 from '../assets/gravura-001.jpg';
+import gravura002 from '../assets/gravura-002.jpg';
+import gravura003 from '../assets/gravura-003.jpg';
+import gravura004 from '../assets/gravura-004.jpg';
+import tokyo2020 from '../assets/tokyo_2020.jpg';
+import betterRealityIsland from '../assets/Better Reality Island 1.1 - 1400px.jpg';
+import baw06 from '../assets/baw06.jpg';
+import baw04 from '../assets/baw04.jpg';
+import oPrimeiroSePerdeu2 from '../assets/o primeiro se perdeu2.jpg';
+import argama from '../assets/argama.jpg';
 
 export default {
   name: 'Works',
@@ -301,6 +522,16 @@ export default {
       corrigindo1,
       corrigindo2,
       corrigindo3,
+      gravura001,
+      gravura002,
+      gravura003,
+      gravura004,
+      tokyo2020,
+      betterRealityIsland,
+      baw06,
+      baw04,
+      oPrimeiroSePerdeu2,
+      argama,
       dialogOpen: false,
       dialogImg: null,
       dialogAlt: '',
@@ -315,19 +546,19 @@ export default {
           id: 'gravuras',
           name: 'Gravuras',
           description: 'Trabalhos em gravura e técnicas tradicionais',
-          previewImage: memoria03
+          previewImage: gravura002
         },
         {
           id: 'digital',
           name: 'Digital',
           description: 'Arte digital e experimentações tecnológicas',
-          previewImage: memoria05
+          previewImage: tokyo2020
         },
         {
           id: 'som',
           name: 'Som',
           description: 'Composições e experimentações sonoras',
-          previewImage: v004
+          previewImage: argama
         }
       ]
     }
@@ -376,13 +607,21 @@ export default {
     selectCategory(categoryId) {
       this.selectedCategory = categoryId;
       // Reset para o primeiro item expandido quando mudar de categoria
-      this.openSerie = 'memorias';
+      if (categoryId === 'pinturas') {
+        this.openSerie = 'memorias';
+      } else if (categoryId === 'gravuras') {
+        this.openSerie = 'gravuras';
+      } else if (categoryId === 'digital') {
+        this.openSerie = 'digital';
+      } else if (categoryId === 'som') {
+        this.openSerie = 'som';
+      }
       this.$nextTick(() => {
         this.setupScrollObserver();
       });
     },
     setupScrollObserver() {
-      if (!this.selectedCategory || this.selectedCategory !== 'pinturas') return;
+      if (!this.selectedCategory || (this.selectedCategory !== 'pinturas' && this.selectedCategory !== 'gravuras' && this.selectedCategory !== 'digital' && this.selectedCategory !== 'som')) return;
       
       // Limpar observer anterior se existir
       if (this.scrollObserver) {
@@ -752,5 +991,31 @@ export default {
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+.bandcamp-embeds {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+
+.bandcamp-embed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bandcamp-embed iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .bandcamp-embeds {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 </style> 
