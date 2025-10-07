@@ -8,7 +8,7 @@
               RAPHAEL<br>
               FRANCISCO
             </h1>
-            <p class="hero-subtitle fade-in fade-in-delay-1">Artista Visual</p>
+            <p class="hero-subtitle fade-in fade-in-delay-1">Artista</p>
           </div>
           <div class="hero-image fade-in fade-in-delay-2">
             <div class="hero-artwork">
