@@ -9,16 +9,13 @@
             <div class="bio-section fade-in fade-in-delay-1">
               <h2 class="mb-3">História + Formação + Poética</h2>
               <p class="mb-1">
-                Raphael Francisco é paulista, radicado em Curitiba desde 2007, possui mestrado em 
-                Artes Visuais pela PPG Artes UNESPAR (2023) na linha de pesquisa Modos de 
-                Conhecimento e Processos Criativos em Arte e graduação em Licenciatura em Artes 
-                Visuais pela Escola e Música e Belas Artes do Paraná – UNESPAR (2015).
+                Raphael Francisco é paulista, radicado em Curitiba desde 2007.
               </p>
               <p class="mb-2">
-                Sua poética encontra-se no limiar das técnicas tradicionais de pintura e produção 
-                digital generativa de imagens abstratas via código. Explora diferentes relações entre 
-                imagem abstrata, <em>glitches</em>, tecnologias digitais e analógicas. Tem participado de 
-                exposições coletivas nacionais e internacionais desde 2013.
+                Sua poética explora o encontro entre técnicas tradicionais de pintura e a produção digital generativa de imagens abstratas a partir de código. Investiga relações entre imagem abstrata, <em>glitches</em>, tecnologias digitais e analógicas, participando de exposições coletivas nacionais e internacionais desde 2013.
+              </p>
+              <p class="mb-2">
+                É mestre em Artes Visuais pelo PPG Artes UNESPAR (2023), na linha de pesquisa Modos de Conhecimento e Processos Criativos em Arte, e graduado em Licenciatura em Artes Visuais pela Escola de Música e Belas Artes do Paraná – UNESPAR (2015).
               </p>
             </div>
 
@@ -40,7 +37,7 @@
                       rel="noopener noreferrer"
                       style="color: #111; font-weight: bold; text-decoration: underline;"
                     >
-                      Acesse a dissertação
+                      > Acesse a dissertação <
                     </a>
                   </div>
                 </li>
@@ -54,70 +51,109 @@
             <div class="bio-section fade-in fade-in-delay-3">
               <h3 class="mb-2">Técnicas e Processos</h3>
               <p>
-                Seu trabalho explora a intersecção entre técnicas tradicionais de pintura e 
+                Seu trabalho explora a intersecção entre técnicas tradicionais de pintura, gravura e 
                 tecnologias digitais, investigando processos criativos que dialogam com 
                 glitches, interferências e a produção generativa de imagens abstratas através 
                 de código computacional.
+              </p>
+              <p>
+                Busca, dessa maneira, tensionar as fronteiras entre o fazer manual e automatizado,
+                propondo diálogos entre a materialidade da tinta e a imaterialidade dos algoritmos. 
+                Além disso, experimenta técnicas diversas de pintura, transferência de imagem, manipulação digital, criação e edição de código, composições sonoras e audiovisuais, As obras que surgem dessas ações revelam tanto o potencial expressivo das falhas quanto a imprevisibilidade resultante da interação entre o humano e a máquina. Seu processo inclui também a investigação de questões como cromatismo, abstração, aleatoridade, repetição, erro, autoria e originalidade.
               </p>
             </div>
 
             <div class="bio-section fade-in fade-in-delay-4">
               <h3 class="mb-2">Exposições</h3>
               <div class="exhibitions-list">
+                
                 <div class="exhibition-item">
                   <strong>2023</strong>
                   <div class="exhibition-details">
-                    <h4>Exposição Coletiva Internacional</h4>
-                    <p>Galeria de Arte Contemporânea, São Paulo-SP</p>
+                    <h4>A Pele da Terra - GRACON</h4>
+                    <p>Museu Casa Alfredo Andersen, Curitiba-PR</p>
+                  </div>
+                </div>
+                
+                <div class="exhibition-item">
+                  <strong>2023</strong>
+                  <div class="exhibition-details">
+                    <h4>Fubar 2k23</h4>
+                    <p>Zagreb, Croácia</p>
+                  </div>
+                </div>
+
+                <div class="exhibition-item">
+                  <strong>2023</strong>
+                  <div class="exhibition-details">
+                    <h4>Glitch.art.br</h4>
+                    <p>Galeria Virtual Glitch.art.br, São Paulo-SP</p>
+                  </div>
+                </div>
+
+                <div class="exhibition-item">
+                  <strong>2023</strong>
+                  <div class="exhibition-details">
+                    <h4>NOT.GLI.TC/H OPEN PORTS - URL GALLERY </h4>
+                    <p>Online + Chicago, Estados Unidos</p>
+                  </div>
+                </div>
+                
+                
+                <div class="exhibition-item">
+                  <strong>2023</strong>
+                  <div class="exhibition-details">
+                    <h4>Conexão V </h4>
+                    <p>Museu Municipal de Arte, Curitiba-PR</p>
                   </div>
                 </div>
                 <div class="exhibition-item">
                   <strong>2022</strong>
                   <div class="exhibition-details">
-                    <h4>Arte Digital e Processos Híbridos</h4>
-                    <p>Centro Cultural, Curitiba-PR</p>
+                    <h4>Fubar 2021</h4>
+                    <p>Zagreb, Croácia</p>
                   </div>
                 </div>
                 <div class="exhibition-item">
                   <strong>2021</strong>
                   <div class="exhibition-details">
-                    <h4>Glitches e Interferências</h4>
-                    <p>Museu de Arte Moderna, Rio de Janeiro-RJ</p>
+                    <h4>Glitch.art.br</h4>
+                    <p>Galeria Virtual Glitch.art.br, São Paulo-SP</p>
+                  </div>
+                </div>
+                <div class="exhibition-item">
+                  <strong>2021</strong>
+                  <div class="exhibition-details">
+                    <h4>Homeostasis Lab</h4>
+                    <p>Galeria Virtual Homeostasis, São Paulo-SP</p>
                   </div>
                 </div>
                 <div class="exhibition-item">
                   <strong>2020</strong>
                   <div class="exhibition-details">
-                    <h4>Pintura Abstrata Contemporânea</h4>
-                    <p>Galeria Municipal, Curitiba-PR</p>
-                  </div>
-                </div>
-                <div class="exhibition-item">
-                  <strong>2019</strong>
-                  <div class="exhibition-details">
-                    <h4>Arte e Tecnologia</h4>
-                    <p>Centro de Artes, São Paulo-SP</p>
+                    <h4>Planning in the name of hope (em colaboração com a artista Lee Taijung)</h4>
+                    <p>ArtLogicSpace - Seul, Coreia do Sul</p>
                   </div>
                 </div>
                 <div class="exhibition-item">
                   <strong>2018</strong>
                   <div class="exhibition-details">
-                    <h4>Processos Criativos Digitais</h4>
-                    <p>Instituto de Artes, Curitiba-PR</p>
-                  </div>
-                </div>
-                <div class="exhibition-item">
-                  <strong>2017</strong>
-                  <div class="exhibition-details">
-                    <h4>Arte Contemporânea Brasileira</h4>
-                    <p>Galeria Nacional, Brasília-DF</p>
+                    <h4>Curitown - A cultura do skate em Curitiba (part. trilha sonora)</h4>
+                    <p>Portão Cultural - Cine Guarani, Curitiba-PR</p>
                   </div>
                 </div>
                 <div class="exhibition-item">
                   <strong>2016</strong>
                   <div class="exhibition-details">
-                    <h4>Novos Caminhos da Pintura</h4>
-                    <p>Centro Cultural, São Paulo-SP</p>
+                    <h4>Defronte</h4>
+                    <p>Notas Café - Galeria Tobias de Macedo, Curitiba-PR</p>
+                  </div>
+                </div>
+                <div class="exhibition-item">
+                  <strong>2015</strong>
+                  <div class="exhibition-details">
+                    <h4>Um olhar para além da serra do mar</h4>
+                    <p>Centro Cultural Rocha Pombo, Morretes-PR</p>
                   </div>
                 </div>
                 <div class="exhibition-item">
@@ -128,17 +164,17 @@
                   </div>
                 </div>
                 <div class="exhibition-item">
-                  <strong>2014</strong>
+                  <strong>2013</strong>
                   <div class="exhibition-details">
-                    <h4>Primeiras Experimentações</h4>
-                    <p>Galeria Universitária, Curitiba-PR</p>
+                    <h4>Em Fim</h4>
+                    <p>Galeria da Belas Artes - UNESPAR, Curitiba-PR</p>
                   </div>
                 </div>
                 <div class="exhibition-item">
                   <strong>2013</strong>
                   <div class="exhibition-details">
-                    <h4>Início da Trajetória Artística</h4>
-                    <p>Centro de Artes, Curitiba-PR</p>
+                    <h4>Não há artistas Expondo Aqui</h4>
+                    <p>Galeria da Belas Artes - UNESPAR, Curitiba-PR</p>
                   </div>
                 </div>
               </div>
@@ -217,11 +253,12 @@ export default {
 }
 
 .education-list li::before {
-  content: "→";
+  content: "•";
   position: absolute;
   left: 0;
   top: 0;
   font-weight: bold;
+  color: #333;
 }
 
 .exhibitions-list {
